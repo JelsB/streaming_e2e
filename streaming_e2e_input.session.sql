@@ -30,3 +30,8 @@ VALUES (1, 1, '1996-12-02'),
     (2, 1, '2000-02-01'),
     (3, 4, '2020-10-16'),
     (4, 2, '1990-10-20');
+
+
+select * from klant_provincie
+INSERT INTO klant(klant_id, naam, email)
+values (5, 'Free', 'free@mail.com');

@@ -1,17 +1,19 @@
 ---
-version: '2'
+version: "2"
 services:
   zookeeper:
-    container_name: zookeeper
+    container_name: zookeeper_streaming
     image: confluentinc/cp-zookeeper:5.5.0
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
+    networks:
+      custom-network:
 
   kafka:
-    container_name: kafka
+    container_name: kafka_streaming
     image: confluentinc/cp-enterprise-kafka:5.5.0
     depends_on:
       - zookeeper
@@ -33,11 +35,13 @@ services:
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka:29092
       CONFLUENT_METRICS_REPORTER_ZOOKEEPER_CONNECT: zookeeper:2181
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
-      CONFLUENT_METRICS_ENABLE: 'true'
-      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+      CONFLUENT_METRICS_ENABLE: "true"
+      CONFLUENT_SUPPORT_CUSTOMER_ID: "anonymous"
+    networks:
+      custom-network:
 
   schema-registry:
-    container_name: schema-registry
+    container_name: schema-registry_streaming
     image: confluentinc/cp-schema-registry:5.5.0
     depends_on:
       - zookeeper
@@ -47,9 +51,11 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
+    networks:
+      custom-network:
 
   ksql-server:
-    container_name: ksql-server
+    container_name: ksql-server_streaming
     image: confluentinc/cp-ksql-server
     ports:
       - 8088:8088
@@ -63,3 +69,56 @@ services:
       KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_SERVICE_ID: kafka-examples
       KSQL_KSQL_EXTENSION_DIR: /etc/ksql-server/ext
+    networks:
+      custom-network:
+
+  db-input:
+    container_name: postgres-input
+    image: postgres
+    ports:
+      - 5440:5432
+    environment:
+      POSTGRES_PASSWORD: docker
+    networks:
+      custom-network:
+
+  db-output:
+    container_name: postgres-output
+    image: postgres
+    ports:
+      - 5444:5432
+    environment:
+      POSTGRES_PASSWORD: docker
+    networks:
+      custom-network:
+
+  dremio:
+    container_name: dremio
+    image: dremio/dremio-oss
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 45678:45678
+    networks:
+      custom-network:
+
+  connect:
+    container_name: debezium-connect
+    image: debezium/connect
+    depends_on:
+      - zookeeper
+      - kafka
+    ports:
+      - 8083:8083
+    environment:
+      CONFIG_STORAGE_TOPIC: my_connect_configs
+      OFFSET_STORAGE_TOPIC: my_connect_offsets
+      STATUS_STORAGE_TOPIC: my_connect_statuses
+      BOOTSTRAP_SERVERS: kafka:29092
+      # CONNECT_TOPIC_CREATION_ENABLE: true
+    networks:
+      custom-network:
+
+networks:
+  custom-network:
+    driver: bridge
