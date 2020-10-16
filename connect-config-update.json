@@ -1,0 +1,9 @@
+{
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres-input",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "docker",
+    "database.dbname": "postgres",
+    "database.server.name": "vdp"
+}
