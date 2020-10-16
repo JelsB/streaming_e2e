@@ -26,12 +26,10 @@ values (1, 'Vlaams-Brabant'),
     (4, 'Waals-Branbant');
 INSERT into klant_provincie(klant_id, provincie_id, verhuis_date)
 VALUES (1, 1, '1996-12-02'),
-    (1, 3, '2020-08-02'),
     (2, 1, '2000-02-01'),
     (3, 4, '2020-10-16'),
     (4, 2, '1990-10-20');
-
-
-select * from klant_provincie
+select *
+from klant
 INSERT INTO klant(klant_id, naam, email)
-values (5, 'Free', 'free@mail.com');
+values (7, 'Free', 'free@mail.com');

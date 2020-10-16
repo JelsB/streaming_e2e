@@ -74,7 +74,7 @@ services:
 
   db-input:
     container_name: postgres-input
-    image: postgres
+    image: debezium/postgres
     ports:
       - 5440:5432
     environment:
@@ -115,7 +115,7 @@ services:
       OFFSET_STORAGE_TOPIC: my_connect_offsets
       STATUS_STORAGE_TOPIC: my_connect_statuses
       BOOTSTRAP_SERVERS: kafka:29092
-      # CONNECT_TOPIC_CREATION_ENABLE: true
+      CONNECT_TOPIC_CREATION_ENABLE: "true"
     networks:
       custom-network:
 
