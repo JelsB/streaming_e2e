@@ -7,6 +7,6 @@
         "database.user": "postgres",
         "database.password": "docker",
         "database.dbname": "postgres",
-        "database.server.name": "fullfillment"
+        "database.server.name": "vdp"
     }
 }

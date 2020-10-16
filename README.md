@@ -1,4 +1,6 @@
 Run
 ```docker-compose up```
 
-post request of connect-config.json to http://localhost:8083/connectors/
+POST request of connect-config.json to http://localhost:8083/connectors/
+
+PUT voor update van connector to http://localhost:8083/connectors/<connector-name>/config
