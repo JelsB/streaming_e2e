@@ -9,6 +9,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 2181:2181
+    networks:
+      custom-network:
 
   kafka:
     container_name: kafka_streaming
@@ -35,6 +37,8 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: "true"
       CONFLUENT_SUPPORT_CUSTOMER_ID: "anonymous"
+    networks:
+      custom-network:
 
   schema-registry:
     container_name: schema-registry_streaming
@@ -47,6 +51,8 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
+    networks:
+      custom-network:
 
   ksql-server:
     container_name: ksql-server_streaming
@@ -63,6 +69,8 @@ services:
       KSQL_KSQL_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       KSQL_KSQL_SERVICE_ID: kafka-examples
       KSQL_KSQL_EXTENSION_DIR: /etc/ksql-server/ext
+    networks:
+      custom-network:
 
   db-input:
     container_name: postgres-input
@@ -71,6 +79,8 @@ services:
       - 5440:5432
     environment:
       POSTGRES_PASSWORD: docker
+    networks:
+      custom-network:
 
   db-output:
     container_name: postgres-output
@@ -79,3 +89,19 @@ services:
       - 5444:5432
     environment:
       POSTGRES_PASSWORD: docker
+    networks:
+      custom-network:
+
+  dremio:
+    container_name: dremio
+    image: dremio/dremio-oss
+    ports:
+      - 9047:9047
+      - 31010:31010
+      - 45678:45678
+    networks:
+      custom-network:
+
+networks:
+  custom-network:
+    driver: bridge
