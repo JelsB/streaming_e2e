@@ -1,0 +1,1044 @@
+
+PRODUCER keyed-message
+key: 1
+topic: Axon.VMAS.DomainEvents
+{
+    "eventIdentifier": "205d833e-a1d9-47fe-8ab6-47738e89f5be",
+    "eventtype": "vmas/VerzendingGestart",
+    "revision": 1,
+    "timestamp": "2020-09-30T05:23:06.263Z",
+    "payload": {
+        "ikl": "1",
+        "bundelId": "6b7d2fe3-c2df-4cff-9ddb-b1dfd84d34cf",
+        "verzendingType": "EMAIL",
+        "verrijkteVacatureData": {
+            "klantinformatie": {
+                "ikl": "11000563",
+                "naam": "CAEVgMryzBoQv+hKiZO4YuMFKpPc5BhbnSHIYmriQrTnbynKlA01EMscCzIHSGV5cm1hbg==",
+                "voornaam": "CAEV9d9AjBoQcVKlOwwcXDIaZv4f1SZcTyHAAPB6ba6tpymR4Snk2VeyhDIGQXJ0aHVy",
+                "email": "CAEVkBy9IxogBLzHtDxUAXb1z9Ve4+H3iAyyEzBf4ixkZs/Zpi+61pAhpCxhAuxQeQwp8nOQLfR3Q6wyEDNUYXYzMVlAdGVzdC5vcmc=",
+                "gsm": "CAEVM1U8shoQ8oIxNbWgV3fLcM55cNvFziEszDrpbipGcinwg4+Fjv51izIMKzMyNDc4MTQ2MjE1",
+                "adres": {
+                    "straat": "CAEVY5EMohogUpN+8gHHaoKrIspICwYj9NfA3SvADrR1vmlqglo0+i0hMwMBwRF2zyMpiF1BmOshFncyDk1hcmlha2Vya2VsYWFu",
+                    "huisnummer": "CAEVC+oOlRoQLk/CLX4GvoQrd62T9onB3SFGIB76f9etYCnzXIU894yJOjIBMQ==",
+                    "gemeente": "CAEVJdkNhRoQ/Zgyae/Y52+unVvpfDnK8SF85uJmrfJ1qykS9nGIcBYkMjIGVkwsNjc0",
+                    "postcode": "CAEV3SP3NxoQO2K7lCQ5BSiLoUP5Wv70rCHBsRQU8u/GuylxbRfPt88SrDIGVkwsMzgy",
+                    "landCode": "BE"
+                },
+                "verwijderd": false,
+                "catwzCode": "78"
+            },
+            "suggesties": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "matchings": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "zoekopdrachten": {
+                "geselecteerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503128,
+                                    "functienaam": "Productiemedewerker tweeploegenstelsel",
+                                    "leverancier": "SD Worx Staffing Solutions Boom",
+                                    "tewerkstellingslocatie": "WILLEBROEK",
+                                    "gesloten": false
+                                },
+                                "uuid": "4619ad3f-9d63-4f3c-99c5-054e480355d1"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503521,
+                                    "functienaam": "Auditor Food Primair",
+                                    "leverancier": "Vinçotte",
+                                    "tewerkstellingslocatie": "VILVOORDE",
+                                    "gesloten": false
+                                },
+                                "uuid": "ffcb3ccc-e893-4f6f-a714-dd403c554cdf"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504314,
+                                    "functienaam": "Verantwoordelijke traiteurdienst",
+                                    "leverancier": "STEGMANN BELGIUM",
+                                    "tewerkstellingslocatie": "ZEMST",
+                                    "gesloten": false
+                                },
+                                "uuid": "dfc9a8b2-f2c2-423f-af83-0e3bccc0f55b"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61501945,
+                                    "functienaam": "ZAALMEDEWERK(ST)ER GEZOCHT FULLTIME, PARTTIME OF FLEXI",
+                                    "leverancier": "Jobat",
+                                    "tewerkstellingslocatie": "KAMPENHOUT",
+                                    "gesloten": false
+                                },
+                                "uuid": "92ac4ab0-fb01-42ab-a96a-db61ccdd4b2c"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504887,
+                                    "functienaam": "INDUSTRIEEL ONDERHOUDSTECHNIEKER - MET BEDRIJFSWAGEN",
+                                    "leverancier": "DRIVEN by talent | Leuven",
+                                    "tewerkstellingslocatie": "SINT-KATELIJNE-WAVER",
+                                    "gesloten": false
+                                },
+                                "uuid": "7574b410-94c0-4ff3-a48c-0d77addb496d"
+                            }
+                        ],
+                        "genegeerd": [],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298128",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatieCode=393&locatie=2800%20Mechelen&trefwoord=voeding&arbeidsduur=V&sinds=9000&afstand=10&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61501301,
+                                    "functienaam": "Medisch laboratorium technoloog - Labo microbiologie",
+                                    "leverancier": "AZ SINT MAARTEN",
+                                    "tewerkstellingslocatie": "Regio Mechelen",
+                                    "gesloten": false
+                                },
+                                "uuid": "99196047-4c97-46af-be7b-dfa11254b5c9"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504241,
+                                    "functienaam": "Klinisch bioloog Centraal Labo, Mechelen",
+                                    "leverancier": "RODE KRUIS - VLAANDEREN",
+                                    "tewerkstellingslocatie": "MECHELEN",
+                                    "gesloten": false
+                                },
+                                "uuid": "7125cc2d-8ee0-42e0-a8ac-280f726ac5ce"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504082,
+                                    "functienaam": "Laboratorium technoloog ter ondersteuning van het Vanderhaeghen labo",
+                                    "leverancier": "V I B",
+                                    "tewerkstellingslocatie": "LEUVEN",
+                                    "gesloten": false
+                                },
+                                "uuid": "8df1147d-b8fc-4c96-9ddf-d3af1ddc236c"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61505205,
+                                    "functienaam": "Agent Administratif Laboratoire - FR - H/F/X",
+                                    "leverancier": "Jobmatch",
+                                    "tewerkstellingslocatie": "SINT-LAMBRECHTS-WOLUWE",
+                                    "gesloten": false
+                                },
+                                "uuid": "6b17474d-0385-46ac-8422-54df83c569cd"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502359,
+                                    "functienaam": "Operator Bottelarij Duvel Moortgat (m/v) Vaste Nacht",
+                                    "leverancier": "UNIQUE OFFICE",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65d86cd1-3171-4423-b818-53f000dbba83"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503042,
+                                    "functienaam": "LABORANT ASSISTENT",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "HEIST-OP-DEN-BERG",
+                                    "gesloten": false
+                                },
+                                "uuid": "6b382217-e048-4020-b1e5-55b767ca552f"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61505338,
+                                    "functienaam": "Leerkracht mechanica",
+                                    "leverancier": "TECHNISCHE SCHOOL MERCHTEM",
+                                    "tewerkstellingslocatie": "MERCHTEM",
+                                    "gesloten": false
+                                },
+                                "uuid": "1ca42d5c-4d6e-4339-9c60-f1e79ea3592d"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502674,
+                                    "functienaam": "PRODUCT SUPPORT ENGINEER",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65f9db86-5e6f-4924-a576-81b683d12aac"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504448,
+                                    "functienaam": "Validation Engineer",
+                                    "leverancier": "ATLAS COPCO AIRPOWER",
+                                    "tewerkstellingslocatie": "WILRIJK",
+                                    "gesloten": false
+                                },
+                                "uuid": "eab3251c-a9d1-4b20-8beb-6feb88e12aeb"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503270,
+                                    "functienaam": "Functioneel Beheerder",
+                                    "leverancier": "RODE KRUIS - VLAANDEREN",
+                                    "tewerkstellingslocatie": "MECHELEN",
+                                    "gesloten": false
+                                },
+                                "uuid": "a367d4d7-ccea-4555-bbae-9e3cb63b3367"
+                            }
+                        ],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504240,
+                                "uuid": "b6602617-964a-4eb9-a465-44a211f736cb",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61502893,
+                                "uuid": "1bd84f11-993a-4555-964c-b823c6f8bbd3",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61505213,
+                                "uuid": "d96d90b7-0de9-420a-b20f-aa212ed525f1",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61500912,
+                                "uuid": "d23b258b-d364-4679-8403-810c01a8bdae",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503030,
+                                "uuid": "c2e9462d-dd9c-456d-b98b-83765a1f27e1",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504043,
+                                "uuid": "1bca260d-0e69-4a46-ba75-48f08ebae858",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504458,
+                                "uuid": "56ab94ee-5042-449a-bdf2-5317133131d1",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503729,
+                                "uuid": "c1bd55da-7f07-4c78-b5dc-a3a24c81fe7d",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61502670,
+                                "uuid": "6436858f-e56e-4e33-8a56-ce7cd5d01d4a",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504979,
+                                "uuid": "9b33d51f-40f8-4915-87d6-da160d645cf8",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61505484,
+                                "uuid": "368bdc3d-840e-4e44-b677-b04183b73263",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501619,
+                                "uuid": "a1c97a9e-cd32-492e-aff2-23ae1b9deb84",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504192,
+                                "uuid": "b6e52ae3-8471-40c9-a073-9b9a6edeeabb",
+                                "reden": "OVERFLOW"
+                            }
+                        ],
+                        "meer": true,
+                        "jobselectie": {
+                            "id": "1000278272",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=20&locatieCode=393&sinds=9000&locatie=2800%20Mechelen&trefwoord=labo&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "20 km Mechelen labo",
+                            "datumCreatie": "2017-01-03T13:54:22Z"
+                        }
+                    }
+                ],
+                "genegeerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "7c868305-fb60-4b2e-a822-1902e16073f9",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "75730242-c74d-4e8e-ad1a-b70907483f3f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "bcb0d07a-ccf2-4bcc-bc1c-1196695667b5",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "10025e2c-a8dc-4b14-bed7-c28863a23195",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "8402735b-6859-46c5-9ff6-23b01a48da45",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298129",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatie=2800%20Mechelen&arbeidsduur=V&trefwoord=voeding&afstand=10&locatieCode=393&sinds=9000&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "25e87cd3-4ca2-4405-9b27-a12ac7cbb228",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "5ee0ce66-b9a1-47fa-bb4c-b89702ec36e6",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "c42c2e1f-9335-45a7-b093-d9d2fba8eb6f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "9395a9a2-7d83-4244-8712-6816dea7c0e1",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "88f05927-bbbd-4e5d-b530-57b63ec2f1f8",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298130",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&arbeidsduur=V&locatieCode=393&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "d8e528e5-ccdc-4250-aac0-269aa63a4170",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "29bab864-4cca-41a3-824f-b8c5c4fefc09",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "a8dd7ce8-ee50-4d50-b253-09816a584c28",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "cb04fb7e-8e97-439a-85e8-107a8e928cad",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "25052a60-5c4f-4a44-851c-3d281710e619",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298131",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&locatieCode=393&arbeidsduur=V&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    }
+                ],
+                "meer": false
+            }
+        }
+    }
+}
+
+#####
+PRODUCER keyed-message
+key: 1
+topic: Axon.VMAS.DomainEvents
+{
+    "eventIdentifier": "205d833e-a1d9-47fe-8ab6-47738e89f5be",
+    "eventtype": "vmas/VerzendingGestart",
+    "revision": 1,
+    "timestamp": "2020-09-30T05:23:06.263Z",
+    "payload": {
+        "ikl": "1",
+        "bundelId": "6b7d2fe3-c2df-4cff-9ddb-b1dfd84d34cf",
+        "verzendingType": "EMAIL",
+        "verrijkteVacatureData": {
+            "klantinformatie": {
+                "ikl": "11000563",
+                "naam": "CAEVgMryzBoQv+hKiZO4YuMFKpPc5BhbnSHIYmriQrTnbynKlA01EMscCzIHSGV5cm1hbg==",
+                "voornaam": "CAEV9d9AjBoQcVKlOwwcXDIaZv4f1SZcTyHAAPB6ba6tpymR4Snk2VeyhDIGQXJ0aHVy",
+                "email": "CAEVkBy9IxogBLzHtDxUAXb1z9Ve4+H3iAyyEzBf4ixkZs/Zpi+61pAhpCxhAuxQeQwp8nOQLfR3Q6wyEDNUYXYzMVlAdGVzdC5vcmc=",
+                "gsm": "CAEVM1U8shoQ8oIxNbWgV3fLcM55cNvFziEszDrpbipGcinwg4+Fjv51izIMKzMyNDc4MTQ2MjE1",
+                "adres": {
+                    "straat": "CAEVY5EMohogUpN+8gHHaoKrIspICwYj9NfA3SvADrR1vmlqglo0+i0hMwMBwRF2zyMpiF1BmOshFncyDk1hcmlha2Vya2VsYWFu",
+                    "huisnummer": "CAEVC+oOlRoQLk/CLX4GvoQrd62T9onB3SFGIB76f9etYCnzXIU894yJOjIBMQ==",
+                    "gemeente": "CAEVJdkNhRoQ/Zgyae/Y52+unVvpfDnK8SF85uJmrfJ1qykS9nGIcBYkMjIGVkwsNjc0",
+                    "postcode": "CAEV3SP3NxoQO2K7lCQ5BSiLoUP5Wv70rCHBsRQU8u/GuylxbRfPt88SrDIGVkwsMzgy",
+                    "landCode": "BE"
+                },
+                "verwijderd": false,
+                "catwzCode": "78"
+            },
+            "suggesties": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "matchings": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "zoekopdrachten": {
+                "geselecteerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503128,
+                                    "functienaam": "Productiemedewerker tweeploegenstelsel",
+                                    "leverancier": "SD Worx Staffing Solutions Boom",
+                                    "tewerkstellingslocatie": "WILLEBROEK",
+                                    "gesloten": false
+                                },
+                                "uuid": "4619ad3f-9d63-4f3c-99c5-054e480355d1"
+                            }
+                        ],
+                        "genegeerd": [],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298128",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatieCode=393&locatie=2800%20Mechelen&trefwoord=voeding&arbeidsduur=V&sinds=9000&afstand=10&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                          
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502359,
+                                    "functienaam": "Operator Bottelarij Duvel Moortgat (m/v) Vaste Nacht",
+                                    "leverancier": "UNIQUE OFFICE",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65d86cd1-3171-4423-b818-53f000dbba83"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503042,
+                                    "functienaam": "LABORANT ASSISTENT",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "HEIST-OP-DEN-BERG",
+                                    "gesloten": false
+                                },
+                                "uuid": "6b382217-e048-4020-b1e5-55b767ca552f"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61505338,
+                                    "functienaam": "Leerkracht mechanica",
+                                    "leverancier": "TECHNISCHE SCHOOL MERCHTEM",
+                                    "tewerkstellingslocatie": "MERCHTEM",
+                                    "gesloten": false
+                                },
+                                "uuid": "1ca42d5c-4d6e-4339-9c60-f1e79ea3592d"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502674,
+                                    "functienaam": "PRODUCT SUPPORT ENGINEER",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65f9db86-5e6f-4924-a576-81b683d12aac"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504448,
+                                    "functienaam": "Validation Engineer",
+                                    "leverancier": "ATLAS COPCO AIRPOWER",
+                                    "tewerkstellingslocatie": "WILRIJK",
+                                    "gesloten": false
+                                },
+                                "uuid": "eab3251c-a9d1-4b20-8beb-6feb88e12aeb"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503270,
+                                    "functienaam": "Functioneel Beheerder",
+                                    "leverancier": "RODE KRUIS - VLAANDEREN",
+                                    "tewerkstellingslocatie": "MECHELEN",
+                                    "gesloten": false
+                                },
+                                "uuid": "a367d4d7-ccea-4555-bbae-9e3cb63b3367"
+                            }
+                        ],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504240,
+                                "uuid": "b6602617-964a-4eb9-a465-44a211f736cb",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61502893,
+                                "uuid": "1bd84f11-993a-4555-964c-b823c6f8bbd3",
+                                "reden": "OVERFLOW"
+                            }
+                        ],
+                        "meer": true,
+                        "jobselectie": {
+                            "id": "1000278272",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=20&locatieCode=393&sinds=9000&locatie=2800%20Mechelen&trefwoord=labo&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "20 km Mechelen labo",
+                            "datumCreatie": "2017-01-03T13:54:22Z"
+                        }
+                    }
+                ],
+                "genegeerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "7c868305-fb60-4b2e-a822-1902e16073f9",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "75730242-c74d-4e8e-ad1a-b70907483f3f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "bcb0d07a-ccf2-4bcc-bc1c-1196695667b5",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "10025e2c-a8dc-4b14-bed7-c28863a23195",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "8402735b-6859-46c5-9ff6-23b01a48da45",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298129",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatie=2800%20Mechelen&arbeidsduur=V&trefwoord=voeding&afstand=10&locatieCode=393&sinds=9000&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "25e87cd3-4ca2-4405-9b27-a12ac7cbb228",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "5ee0ce66-b9a1-47fa-bb4c-b89702ec36e6",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "c42c2e1f-9335-45a7-b093-d9d2fba8eb6f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "9395a9a2-7d83-4244-8712-6816dea7c0e1",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "88f05927-bbbd-4e5d-b530-57b63ec2f1f8",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298130",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&arbeidsduur=V&locatieCode=393&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "d8e528e5-ccdc-4250-aac0-269aa63a4170",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "29bab864-4cca-41a3-824f-b8c5c4fefc09",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "a8dd7ce8-ee50-4d50-b253-09816a584c28",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "cb04fb7e-8e97-439a-85e8-107a8e928cad",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "25052a60-5c4f-4a44-851c-3d281710e619",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298131",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&locatieCode=393&arbeidsduur=V&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    }
+                ],
+                "meer": false
+            }
+        }
+    }
+}
+#####
+
+
+PRODUCER keyed-message
+key: 2
+topic: Axon.VMAS.DomainEvents
+{
+    "eventIdentifier": "205d833e-a1d9-47fe-8ab6-47738e89f5be",
+    "eventtype": "vmas/VerzendingGestart",
+    "revision": 1,
+    "timestamp": "2020-09-30T05:23:06.263Z",
+    "payload": {
+        "ikl": "1",
+        "bundelId": "6b7d2fe3-c2df-4cff-9ddb-b1dfd84d34cf",
+        "verzendingType": "EMAIL",
+        "verrijkteVacatureData": {
+            "klantinformatie": {
+                "ikl": "11000563",
+                "naam": "CAEVgMryzBoQv+hKiZO4YuMFKpPc5BhbnSHIYmriQrTnbynKlA01EMscCzIHSGV5cm1hbg==",
+                "voornaam": "CAEV9d9AjBoQcVKlOwwcXDIaZv4f1SZcTyHAAPB6ba6tpymR4Snk2VeyhDIGQXJ0aHVy",
+                "email": "CAEVkBy9IxogBLzHtDxUAXb1z9Ve4+H3iAyyEzBf4ixkZs/Zpi+61pAhpCxhAuxQeQwp8nOQLfR3Q6wyEDNUYXYzMVlAdGVzdC5vcmc=",
+                "gsm": "CAEVM1U8shoQ8oIxNbWgV3fLcM55cNvFziEszDrpbipGcinwg4+Fjv51izIMKzMyNDc4MTQ2MjE1",
+                "adres": {
+                    "straat": "CAEVY5EMohogUpN+8gHHaoKrIspICwYj9NfA3SvADrR1vmlqglo0+i0hMwMBwRF2zyMpiF1BmOshFncyDk1hcmlha2Vya2VsYWFu",
+                    "huisnummer": "CAEVC+oOlRoQLk/CLX4GvoQrd62T9onB3SFGIB76f9etYCnzXIU894yJOjIBMQ==",
+                    "gemeente": "CAEVJdkNhRoQ/Zgyae/Y52+unVvpfDnK8SF85uJmrfJ1qykS9nGIcBYkMjIGVkwsNjc0",
+                    "postcode": "CAEV3SP3NxoQO2K7lCQ5BSiLoUP5Wv70rCHBsRQU8u/GuylxbRfPt88SrDIGVkwsMzgy",
+                    "landCode": "BE"
+                },
+                "verwijderd": false,
+                "catwzCode": "78"
+            },
+            "suggesties": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "matchings": {
+                "geselecteerd": [],
+                "genegeerd": [],
+                "meer": false
+            },
+            "zoekopdrachten": {
+                "geselecteerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503128,
+                                    "functienaam": "Productiemedewerker tweeploegenstelsel",
+                                    "leverancier": "SD Worx Staffing Solutions Boom",
+                                    "tewerkstellingslocatie": "WILLEBROEK",
+                                    "gesloten": false
+                                },
+                                "uuid": "4619ad3f-9d63-4f3c-99c5-054e480355d1"
+                            }
+                        ],
+                        "genegeerd": [],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298128",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatieCode=393&locatie=2800%20Mechelen&trefwoord=voeding&arbeidsduur=V&sinds=9000&afstand=10&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [
+                          
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502359,
+                                    "functienaam": "Operator Bottelarij Duvel Moortgat (m/v) Vaste Nacht",
+                                    "leverancier": "UNIQUE OFFICE",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65d86cd1-3171-4423-b818-53f000dbba83"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503042,
+                                    "functienaam": "LABORANT ASSISTENT",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "HEIST-OP-DEN-BERG",
+                                    "gesloten": false
+                                },
+                                "uuid": "6b382217-e048-4020-b1e5-55b767ca552f"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61505338,
+                                    "functienaam": "Leerkracht mechanica",
+                                    "leverancier": "TECHNISCHE SCHOOL MERCHTEM",
+                                    "tewerkstellingslocatie": "MERCHTEM",
+                                    "gesloten": false
+                                },
+                                "uuid": "1ca42d5c-4d6e-4339-9c60-f1e79ea3592d"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61502674,
+                                    "functienaam": "PRODUCT SUPPORT ENGINEER",
+                                    "leverancier": "SELECT PROJECTS (Select)",
+                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
+                                    "gesloten": false
+                                },
+                                "uuid": "65f9db86-5e6f-4924-a576-81b683d12aac"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61504448,
+                                    "functienaam": "Validation Engineer",
+                                    "leverancier": "ATLAS COPCO AIRPOWER",
+                                    "tewerkstellingslocatie": "WILRIJK",
+                                    "gesloten": false
+                                },
+                                "uuid": "eab3251c-a9d1-4b20-8beb-6feb88e12aeb"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503270,
+                                    "functienaam": "Functioneel Beheerder",
+                                    "leverancier": "RODE KRUIS - VLAANDEREN",
+                                    "tewerkstellingslocatie": "MECHELEN",
+                                    "gesloten": false
+                                },
+                                "uuid": "a367d4d7-ccea-4555-bbae-9e3cb63b3367"
+                            }
+                        ],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504240,
+                                "uuid": "b6602617-964a-4eb9-a465-44a211f736cb",
+                                "reden": "OVERFLOW"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61502893,
+                                "uuid": "1bd84f11-993a-4555-964c-b823c6f8bbd3",
+                                "reden": "OVERFLOW"
+                            }
+                        ],
+                        "meer": true,
+                        "jobselectie": {
+                            "id": "1000278272",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=20&locatieCode=393&sinds=9000&locatie=2800%20Mechelen&trefwoord=labo&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "20 km Mechelen labo",
+                            "datumCreatie": "2017-01-03T13:54:22Z"
+                        }
+                    }
+                ],
+                "genegeerd": [
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "7c868305-fb60-4b2e-a822-1902e16073f9",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "75730242-c74d-4e8e-ad1a-b70907483f3f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "bcb0d07a-ccf2-4bcc-bc1c-1196695667b5",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "10025e2c-a8dc-4b14-bed7-c28863a23195",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "8402735b-6859-46c5-9ff6-23b01a48da45",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298129",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&locatie=2800%20Mechelen&arbeidsduur=V&trefwoord=voeding&afstand=10&locatieCode=393&sinds=9000&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding Mechelen voltijds 10 km",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "25e87cd3-4ca2-4405-9b27-a12ac7cbb228",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "5ee0ce66-b9a1-47fa-bb4c-b89702ec36e6",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "c42c2e1f-9335-45a7-b093-d9d2fba8eb6f",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "9395a9a2-7d83-4244-8712-6816dea7c0e1",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "88f05927-bbbd-4e5d-b530-57b63ec2f1f8",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298130",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&arbeidsduur=V&locatieCode=393&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    },
+                    {
+                        "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
+                        "geselecteerd": [],
+                        "genegeerd": [
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503128,
+                                "uuid": "d8e528e5-ccdc-4250-aac0-269aa63a4170",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61503521,
+                                "uuid": "29bab864-4cca-41a3-824f-b8c5c4fefc09",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504314,
+                                "uuid": "a8dd7ce8-ee50-4d50-b253-09816a584c28",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61501945,
+                                "uuid": "cb04fb7e-8e97-439a-85e8-107a8e928cad",
+                                "reden": "DUBBELE_VERMELDING"
+                            },
+                            {
+                                "@class": "be.vdab.vmas.verrijking.GenegeerdeVacature",
+                                "vacatureId": 61504887,
+                                "uuid": "25052a60-5c4f-4a44-851c-3d281710e619",
+                                "reden": "DUBBELE_VERMELDING"
+                            }
+                        ],
+                        "meer": false,
+                        "jobselectie": {
+                            "id": "1000298131",
+                            "url": "https://www.vdab.be/vindeenjob/vacatures?sort=relevantie&afstand=10&locatieCode=393&arbeidsduur=V&sinds=9000&trefwoord=voeding&locatie=2800%20Mechelen&utm_source=vindeenjob&utm_medium=email&utm_campaign=mailopmaat",
+                            "naam": "voeding 10 km Mechelen voltijds",
+                            "datumCreatie": "2017-02-22T14:51:03Z"
+                        }
+                    }
+                ],
+                "meer": false
+            }
+        }
+    }
+}

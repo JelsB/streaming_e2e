@@ -1,0 +1,20 @@
+CREATE STREAM vmasVerzonden (
+    eventIdentifier varchar,
+    timestamp VARCHAR,
+    payload VARCHAR
+   
+  ) WITH (
+    KAFKA_TOPIC='Axon.VMAS.DomainEvents',
+    VALUE_FORMAT='JSON'
+  );
+
+CREATE STREAM verzondenVacatures (
+    sendTime varchar,
+    ikl VARCHAR,
+    vacatureId VARCHAR,
+    tewerkstellingslocatie varchar,
+    functienaam varchar
+  ) WITH (
+    KAFKA_TOPIC='pageviews',
+    VALUE_FORMAT='DELIMITED'
+  );
