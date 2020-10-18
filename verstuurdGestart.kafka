@@ -447,8 +447,8 @@ topic: Axon.VMAS.DomainEvents
         }
     }
 }
+#########
 
-#####
 PRODUCER keyed-message
 key: 1
 topic: Axon.VMAS.DomainEvents
@@ -802,6 +802,19 @@ topic: Axon.VMAS.DomainEvents
                                 },
                                 "uuid": "4619ad3f-9d63-4f3c-99c5-054e480355d1"
                             }
+                              
+                            ,
+                              {
+                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
+                                "vacatureInformatie": {
+                                    "vacatureId": 61503128,
+                                    "functienaam": "Productiemedewerker tweeploegenstelsel",
+                                    "leverancier": "SD Worx Staffing Solutions Boom",
+                                    "tewerkstellingslocatie": "WILLEBROEK",
+                                    "gesloten": false
+                                },
+                                "uuid": "4619ad3f-9d63-4f3c-99c5-054e480355d1"
+                            }
                         ],
                         "genegeerd": [],
                         "meer": false,
@@ -816,17 +829,7 @@ topic: Axon.VMAS.DomainEvents
                         "@class": "be.vdab.vmas.verrijking.VerrijkteZoekopdracht",
                         "geselecteerd": [
                           
-                            {
-                                "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
-                                "vacatureInformatie": {
-                                    "vacatureId": 61502359,
-                                    "functienaam": "Operator Bottelarij Duvel Moortgat (m/v) Vaste Nacht",
-                                    "leverancier": "UNIQUE OFFICE",
-                                    "tewerkstellingslocatie": "PUURS-SINT-AMANDS",
-                                    "gesloten": false
-                                },
-                                "uuid": "65d86cd1-3171-4423-b818-53f000dbba83"
-                            },
+                           
                             {
                                 "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
                                 "vacatureInformatie": {

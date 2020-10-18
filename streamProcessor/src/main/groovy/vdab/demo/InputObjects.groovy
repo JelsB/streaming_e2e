@@ -3,10 +3,11 @@ package vdab.demo
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import groovy.transform.CompileStatic
+import groovy.transform.ToString
 
 import java.time.LocalDate
 import java.time.LocalDateTime
-
+@ToString
 class RawEvent{
 
     String eventIdentifier
