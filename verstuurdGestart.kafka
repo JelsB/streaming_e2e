@@ -804,6 +804,7 @@ topic: Axon.VMAS.DomainEvents
                             }
                               
                             ,
+                            
                               {
                                 "@class": "be.vdab.vmas.verrijking.GeselecteerdeVacature",
                                 "vacatureInformatie": {

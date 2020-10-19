@@ -4,6 +4,6 @@ import groovy.transform.ToString
 
 @ToString
 class KansOpWerk {
-    String ikl
+    Integer ikl
     String color
 }

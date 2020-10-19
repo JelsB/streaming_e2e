@@ -1,8 +1,6 @@
 package vdab.demo
 
 import groovy.transform.ToString
-import org.apache.kafka.streams.processor.To
-
 
 class AggregateRecord {
 
@@ -26,5 +24,14 @@ class AggregateRecord {
 @ToString
 class VMAS_KansOpWerk{
     KansOpWerk kansOpWerk
-    RawEvent rawEvent
+    VMASEvent rawEvent
 }
+
+@ToString
+class VMAS_KOW_Provincie  {
+    String kleur
+    String ikl
+    String provincie
+}
+
+

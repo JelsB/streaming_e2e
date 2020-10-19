@@ -7,10 +7,13 @@ import com.google.gson.JsonParser
 import groovy.transform.CompileStatic
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.streams.kstream.Aggregator
+import org.apache.kafka.streams.kstream.ForeachAction
 import org.apache.kafka.streams.kstream.Initializer
 import org.apache.kafka.streams.kstream.KStream
 import org.apache.kafka.streams.kstream.KTable
 import org.apache.kafka.streams.kstream.KeyValueMapper
+import org.apache.kafka.streams.kstream.Materialized
+import org.apache.kafka.streams.kstream.Named
 import org.apache.kafka.streams.kstream.Printed
 import org.apache.kafka.streams.kstream.ValueJoiner
 import org.apache.kafka.streams.kstream.ValueMapper
@@ -53,30 +56,29 @@ Properties CreateProperties(){
         JsonElement rootElement= JsonParser.parseString(inputJson)
         return rootElement.getAsJsonObject().getAsJsonObject("payload" ).getAsJsonObject("after")
     }
-    KTable<String,String> kansOpWerkTable
-    KTable<String,KlantProvincie> klantInfo
-
+    StreamsBuilder builder
     void startUp(){
         gson = new GsonBuilder().registerTypeAdapter(LocalDateTime,new LocalDateTimeAdapter()).serializeNulls().create()
 
-        StreamsBuilder builder   = new StreamsBuilder();
+        builder   = new StreamsBuilder();
+//
+        KStream<String,VMASEvent> vmasStream= createVMASStream()
+        KTable<String,String> kansOpWerkTable=createKansOpWerkTable()
+//
+//
+        KStream<String,VMAS_KansOpWerk> joined_KOW_VMAS= Join_VMAS_KOW(vmasStream,kansOpWerkTable)
+        vmasAggregate_Kleur(joined_KOW_VMAS)
+//
 
-        kansOpWerkProcessor(builder)
-        KStream<String,VMAS_KansOpWerk> joined= Join_VMAS_KOW(builder)
-        joined.mapValues(new ValueMapper<VMAS_KansOpWerk, String>() {
-            @Override
-            String apply(VMAS_KansOpWerk value) {
-                return gson.toJson(value)
-            }
-        })
-        .to("JOINED_KOW_VMAS")
-        vmasAggregate_Kleur(joined)
+        KTable<String,String> klantTable = createKlantTable()
 
-        createKlantProvincieStream(builder)
+
+        Aggregate_VMAS_KLEUR_PROVINTIE(joined_KOW_VMAS,klantTable)
+
 
         Topology topo = builder.build();
         KafkaStreams streams =new KafkaStreams(topo,CreateProperties());
-
+//        streams.cleanUp()
         streams.start()
 
 
@@ -84,7 +86,7 @@ Properties CreateProperties(){
 
 
 
-    def kansOpWerkProcessor(StreamsBuilder builder) {
+    KTable<String,String> createKansOpWerkTable() {
         KStream<String,String> stream= builder.stream( "kansopwerk")
 
         KStream<String,KansOpWerk> rawStream=stream.mapValues(new ValueMapper<String, KansOpWerk>() {
@@ -92,110 +94,170 @@ Properties CreateProperties(){
             KansOpWerk apply(String value) {
                 return gson.fromJson(value,KansOpWerk.class)
             }
-        })
+        }).selectKey(new KeyValueMapper<String, KansOpWerk, String>() {
+            @Override
+            String apply(String key, KansOpWerk value) {
+                return value.ikl.toString()
+            }
+        }
+        )
 
-        kansOpWerkTable=rawStream.mapValues(
+        return rawStream.mapValues(
                 new ValueMapper<KansOpWerk, String>() {
                     @Override
                     String apply(KansOpWerk value) {
                         return gson.toJson(value)
                     }
                 }
-        ) .toTable()
+        ).toTable(Named.as("KOW"))
 
     }
 
 
-    KTable<String,String> createKlantProvincieStream (StreamsBuilder builder){
-        KStream<String,String> klantStreamRaw=builder.stream("vdp.public.klant")
-        KStream<String,String> provincieStreamRaw=builder.stream("vdp.public.provincie")
+    KTable<String,String> createKlantTable() {
+        KStream<String,String> klantStreamRaw= builder.stream("vdp.public.klant")
 
-        KStream<String,String> klantStr= klantStreamRaw.mapValues(new ValueMapper<String, Klant>() {
+        KStream<String,Klant> klantStr=klantStreamRaw.mapValues(new ValueMapper<String, Klant>() {
             @Override
             Klant apply(String value) {
                 return (Klant) gson.fromJson(extractAfterCange(value), Klant.class )
+
             }
-        }) .selectKey(new KeyValueMapper<String, Klant, String>() {
+        }).selectKey(new KeyValueMapper<String, Klant, String>() {
             @Override
             String apply(String key, Klant value) {
-                return value.provincieid.toString()
+                return value.ikl.toString()
             }
-        }).mapValues(new ValueMapper<Klant, String>() {
+        })
+
+             KTable<String,String> klantTabel=klantStr.mapValues(new ValueMapper<Klant, String>() {
             @Override
             String apply(Klant value) {
-                return gson.toJson(value)
+                println "debug pring -- ${value}"
+                return gson.toJson( value)
             }
-        })
+        }).toTable(Named.as("klant"))
 
-        KStream<Integer,Provincie> provincieStr=provincieStreamRaw.mapValues(new ValueMapper<String, Provincie>() {
-            @Override
-            Provincie apply(String value) {
-                return (Provincie) gson.fromJson(extractAfterCange(value), Provincie.class )
+        return klantTabel
 
-            }
-        }).selectKey(new KeyValueMapper<String, Provincie, Integer>() {
-            @Override
-            Integer apply(String key, Provincie value) {
-                return value.provincieid
-            }
-        })
+    }
 
-        KTable<String,String> provintieTable = provincieStr.mapValues(new ValueMapper<Provincie, String>() {
-            @Override
-            String apply(Provincie value) {
-                return gson.toJson(value)
-            }
-        }).selectKey(new KeyValueMapper<Integer, String, String>() {
-            @Override
-            String apply(Integer key, String value) {
-                return key.toString()
-            }
-        }).toTable()
 
-        KStream<String,KlantProvincie> klantProvStr= klantStr.join(provintieTable,
-                new ValueJoiner<String, String, KlantProvincie>() {
-            @Override
-            KlantProvincie apply(String value1, String value2) {
-                println("*****  JOINING *****  klant ${value1} --- ${value2}")
-                //return new KlantProvincie(kant:value1,provincie: gson.fromJson(value2,Provincie.class) )
+    KTable<String,String> createKlantProvincieTable (){
+
+//        KStream<String,String> provincieStreamRaw= builder.stream("vdp.public.provincie")
+//
+//                KStream<String,Provincie> provincieStr=provincieStreamRaw.mapValues(new ValueMapper<String, Provincie>() {
+//            @Override
+//            Provincie apply(String value) {
+//                return (Provincie) gson.fromJson(extractAfterCange(value), Provincie.class )
+//
+//            }
+//        }).selectKey(new KeyValueMapper<String, Provincie, String>() {
+//            @Override
+//            String apply(String key, Provincie value) {
+//                return value.provincieid.toString()
+//            }
+//        })
+//
+//        KTable<String,String> provintieTable = provincieStr.mapValues(new ValueMapper<Provincie, String>() {
+//            @Override
+//            String apply(Provincie value) {
+//                return gson.toJson(value)
+//            }
+//        }).toTable( Materialized.with(Serdes.String(),Serdes.String()))
+//
+//
+//        ///// KLANT ////
+//        KStream<String,String> klantStreamRaw=builder.stream("vdp.public.klant")
+//        KStream<String,String> klantStr= klantStreamRaw.mapValues(new ValueMapper<String, Klant>() {
+//            @Override
+//            Klant apply(String value) {
+//                return (Klant) gson.fromJson(extractAfterCange(value), Klant.class )
+//            }
+//        }) .selectKey(new KeyValueMapper<String, Klant, String>() {
+//            @Override
+//            String apply(String key, Klant value) {
+//                return value.provincieid.toString()
+//            }
+//        }).mapValues(new ValueMapper<Klant, String>() {
+//            @Override
+//            String apply(Klant value) {
+//                return gson.toJson(value)
+//            }
+//        })
+//        klantStr.foreach(new ForeachAction<String, String>() {
+//            @Override
+//            void apply(String key, String value) {
+//println(" *** KLANT INFO - ${key} -- ${value} " )
+//            }
+//        })
+//
+/////// JOIN KLANT-PROVINCIE
+//        KStream<String,KlantProvincie> klantProvStr= klantStr.join(provintieTable,
+//                new ValueJoiner<String, String, KlantProvincie>() {
+//            @Override
+//            KlantProvincie apply(String value1, String value2) {
+//                println("*****  JOINING *****  klant ${value1} --- ${value2}")
 //                KlantProvincie klprov=new KlantProvincie(klant: gson.fromJson(value1,Klant.class) ,provincie: gson.fromJson(value2,Provincie.class) )
-//                klprov
-                KlantProvincie klprov=new KlantProvincie(klant: gson.fromJson(value1,Klant.class) ,provincie: gson.fromJson(value2,Provincie.class) )
-                return klprov
-            }
-        } )
-        KStream<String,String> rekeyAndSerialized= klantProvStr.selectKey(new KeyValueMapper<String, KlantProvincie, String>() {
-            @Override
-            String apply(String key, KlantProvincie  value) {
-                return value.klant.ikl.toString()
-            }
-        }).
-                mapValues(new ValueMapper<KlantProvincie, String>() {
-                    @Override
-                    String apply(KlantProvincie value) {
-                        return gson.toJson(value)
-                    }
-                })
-        return rekeyAndSerialized.toTable()
+//                return klprov
+//            }
+//        } )
+//        KStream<String,String> rekeyAndSerialized= klantProvStr.selectKey(new KeyValueMapper<String, KlantProvincie, String>() {
+//            @Override
+//            String apply(String key, KlantProvincie  value) {
+//                return value.klant.ikl.toString()
+//            }
+//        }).
+//                mapValues(new ValueMapper<KlantProvincie, String>() {
+//                    @Override
+//                    String apply(KlantProvincie value) {
+//                        return gson.toJson(value)
+//                    }
+//                })
+//
+//        rekeyAndSerialized.foreach(new ForeachAction<String, String>() {
+//            @Override
+//            void apply(String key, String value) {
+//    println(" ****  JOINED KLANT-PROVINCE **** ${key}  ***** ${value} ")
+//            }
+//        })
+//        return rekeyAndSerialized.toTable(Named.as("Klant-Provincie"))
 
 
     }
 
-    KStream<String,VMAS_KansOpWerk> Join_VMAS_KOW(StreamsBuilder builder){
+    KStream<String,VMASEvent> createVMASStream(){
+         KStream<String,String> stream= builder.stream( "Axon.VMAS.DomainEvents")
 
-        KStream<String,String> stream= builder.stream( "Axon.VMAS.DomainEvents")
+         KStream<String,VMASEvent> resultStream= stream.mapValues(new ValueMapper<String, VMASEvent>() {
+             @Override
+             VMASEvent apply(String value) {
+                 gson.fromJson(value,VMASEvent.class)
+             }
+         }).selectKey(new KeyValueMapper<String, VMASEvent, String>() {
+             @Override
+             String apply(String key, VMASEvent value) {
+                 return value.payload.ikl.toString()
+             }
+         })
 
-        KStream<String,RawEvent> resultStream= stream.mapValues(new ValueMapper<String, RawEvent>() {
+        return resultStream
+     }
+    KStream<String,VMAS_KansOpWerk> Join_VMAS_KOW(KStream<String,VMASEvent> vmasStream,KTable<String,String> kansOpWerkTable){
+
+        //convert to string before joining
+        KStream<String,String> vmasStringStream=vmasStream.mapValues(new ValueMapper<VMASEvent, String>() {
             @Override
-            RawEvent apply(String value) {
-                gson.fromJson(value,RawEvent.class)
+            String apply(VMASEvent value) {
+                return gson.toJson(value)
             }
         })
 
-         KStream<String,VMAS_KansOpWerk> joined=resultStream.leftJoin(kansOpWerkTable,new ValueJoiner<RawEvent, String, VMAS_KansOpWerk>() {
+         KStream<String,VMAS_KansOpWerk> joined=vmasStringStream.leftJoin(kansOpWerkTable,new ValueJoiner<String, String, VMAS_KansOpWerk>() {
             @Override
-            VMAS_KansOpWerk apply(RawEvent value1, String value2) {
-                new VMAS_KansOpWerk(rawEvent: value1,kansOpWerk: gson.fromJson(value2,KansOpWerk.class)  )
+            VMAS_KansOpWerk apply(String value1, String value2) {
+                new VMAS_KansOpWerk(rawEvent:  gson.fromJson(value1,VMASEvent.class)  ,kansOpWerk: gson.fromJson(value2,KansOpWerk.class)  )
             }
         })
 
@@ -203,14 +265,20 @@ Properties CreateProperties(){
 
     }
 
-    def vmasAggregate_Kleur(KStream<String,VMAS_KansOpWerk> vmasJoin){
-
-        KStream<String, String> aggregateStream= vmasJoin
+    void vmasAggregate_Kleur(KStream<String,VMAS_KansOpWerk> vmasJoin){
+        //create aggregated output
+        KStream<String, String>  aggregateStream= vmasJoin
 
                 .selectKey(new KeyValueMapper<String, VMAS_KansOpWerk, String>() {
             @Override
             String apply(String key, VMAS_KansOpWerk value) {
-                return   value.kansOpWerk.color
+               try {
+                   return value.kansOpWerk.color
+               }
+                catch (Exception){
+                    println("NO KOW found for key ${key} ---- ${value}")
+                }
+                return "****"
             }
         })
         .mapValues(new ValueMapper<VMAS_KansOpWerk, String>() {
@@ -219,7 +287,8 @@ Properties CreateProperties(){
                 return gson.toJson(value)
             }
         })
-                .groupByKey().aggregate(
+                .groupByKey()
+                .aggregate(
                 new Initializer<String>() {
                     @Override
                     String apply() {
@@ -230,7 +299,7 @@ Properties CreateProperties(){
                     @Override
                     String apply(String key, String value, String  aggregate) {
                         VMAS_KansOpWerk joined =gson.fromJson(value,VMAS_KansOpWerk.class)
-                        println "AGGREGATE --- ${aggregate}"
+//                        println "AGGREGATE --- ${aggregate}"
                         AggregateRecord aggregateObject=null
                         try {
                             aggregateObject = gson.fromJson(aggregate, AggregateRecord.class)
@@ -239,13 +308,76 @@ Properties CreateProperties(){
                             aggregateObject=new AggregateRecord()
                         }
                         aggregateObject.doAggregation(joined.rawEvent.payload.aantalVacatures())
-                        aggregateObject.kleur=joined.kansOpWerk.color
+                        if(joined.kansOpWerk)
+                            aggregateObject.kleur=joined.kansOpWerk.color
+                        else
+                            aggregateObject.kleur="***"
+
                         return gson.toJson(aggregateObject)
                     }
                 }
         )
                 .toStream()
-        aggregateStream.print(Printed.toSysOut())
         aggregateStream.to("OUT_KleurAantalVerzonden")
+    }
+
+    def Aggregate_VMAS_KLEUR_PROVINTIE(KStream<String,VMAS_KansOpWerk> joined_KOW_VMAS,KTable<String,String> klantTable){
+        joined_KOW_VMAS.foreach(new ForeachAction<String, VMAS_KansOpWerk>() {
+            @Override
+            void apply(String key, VMAS_KansOpWerk value) {
+println("GOT VALUE KOW+VMAS: ${key} === ${value} ")
+            }
+        })
+
+
+        klantTable.toStream().foreach(new ForeachAction<String, String>() {
+            @Override
+            void apply(String key, String value) {
+                println("GOT VALUE KLANT : ${key} === ${value} ")
+            }
+        })
+
+        KStream<String,String> joined_KOW_VMAS_String =joined_KOW_VMAS.mapValues(new ValueMapper<VMAS_KansOpWerk, String>() {
+            @Override
+            String apply(VMAS_KansOpWerk value) {
+                return gson.toJson(value)
+            }
+        })
+
+        joined_KOW_VMAS_String.leftJoin(klantTable,new ValueJoiner<String, String, VMAS_KOW_Provincie>() {
+            @Override
+            VMAS_KOW_Provincie apply(String value1, String value2) {
+                println("*******")
+                println(value1)
+                println(value2)
+                println("*******")
+                VMAS_KansOpWerk vmaskow=gson.fromJson(value1,VMAS_KansOpWerk)
+
+                return new VMAS_KOW_Provincie(
+                        ikl:vmaskow.rawEvent.payload.ikl,
+                        provincie : gson.fromJson(value2,Klant.class).provincie,
+                        kleur: vmaskow.kansOpWerk.color
+                )
+            }
+        }).foreach(new ForeachAction<String, VMAS_KOW_Provincie>() {
+            @Override
+            void apply(String key, VMAS_KOW_Provincie value) {
+                println("JOIN RESULT : ${key} === ${value} ")
+            }
+        })
+
+//
+//        joined_KOW_VMAS.join(klantProvincie, new ValueJoiner<VMAS_KansOpWerk, String, VMAS_KOW_Provincie>() {
+//            @Override
+//            VMAS_KOW_Provincie apply(VMAS_KansOpWerk value1, String value2) {
+//               println("*****  JOIN  met provincie ****")
+//                new VMAS_KOW_Provincie(
+//                        ikl: '1',//value1.rawEvent.payload.ikl,
+//                        kleur:'grr' ,// value1.kansOpWerk.color,
+//                        provincie: 'test'  //gson.fromJson(value2,KlantProvincie.class).provincie.naam
+//
+//                )
+//            }
+//        })
     }
 }

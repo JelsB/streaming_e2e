@@ -7,7 +7,7 @@ class Klant {
     Integer ikl
     String naam
     String voornaam
-    Integer provincieid
+String provincie
 }
 
 @ToString

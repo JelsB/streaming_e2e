@@ -8,7 +8,7 @@ import groovy.transform.ToString
 import java.time.LocalDate
 import java.time.LocalDateTime
 @ToString
-class RawEvent{
+class VMASEvent {
 
     String eventIdentifier
     String eventtype
@@ -29,7 +29,7 @@ class VerzendingGestart {
     }
 
     Integer aantalVacatures(){
-        println "printout aantal vacatures"
+//        println "printout aantal vacatures"
         return this.verrijkteVacatureData.zoekopdrachten.geselecteerd[0].geselecteerd.size() +
                 this.verrijkteVacatureData.zoekopdrachten.geselecteerd[1].geselecteerd.size()
     }
